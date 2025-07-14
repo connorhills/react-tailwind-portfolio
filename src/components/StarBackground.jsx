@@ -85,11 +85,11 @@ export const StarBackground = () => {
         let x, y;
         
         if (spawnSide < 0.5) {
-            x = Math.random() * 50 + 50;
-            y = Math.random() * 30;
+            x = Math.random() * 100;
+            y = Math.random() * 100;
         } else {
-            x = Math.random() * 50;
-            y = Math.random() * 30;
+            x = Math.random() * -100;
+            y = Math.random() * 100;
         }
         
         const animationDuration = Math.random() * 3 + 6;

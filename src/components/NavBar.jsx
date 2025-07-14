@@ -16,7 +16,7 @@ export const NavBar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.screenY > 10);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -29,14 +29,14 @@ export const NavBar = () => {
         isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
       )}
     >
-      <div className="container flex items-center justify-between">
+      <div className="w-full flex items-center justify-between px-24">
         <a
           className="text-xl font-bold text-primary flex items-center"
           href="#home"
         >
           <span className="relative z-10">
-            <span className="text-glow text-foreground"> Connor Hills </span>{" "}
-            Porfolio
+            <span className="text-foreground"> Connor Hills </span>{" "}
+            <span className="text-glow">Porfolio</span>
           </span>
         </a>
 

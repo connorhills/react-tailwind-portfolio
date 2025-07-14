@@ -129,7 +129,7 @@
 
 @utility text-glow {
   @apply relative;
-  text-shadow: 0 0px 8px hsl(var(--primary));
+  text-shadow: 0 0px 10px hsl(var(--primary));
 }
 
 @utility card-hover {

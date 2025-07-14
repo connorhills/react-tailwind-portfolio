@@ -48,14 +48,14 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 gap-6 text-primary">
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Code className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                    <h4 className="font-semibold text-lg"> Game Development</h4>
+                    <h4 className="font-semibold text-lg text-white"> Game Development</h4>
                     <p className="text-muted-foreground">
                          Building immersive and engaging experiences 
                          with Unity C#.
@@ -69,7 +69,7 @@ export const AboutSection = () => {
                   <User className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                    <h4 className="font-semibold text-lg"> UI/UX Design</h4>
+                    <h4 className="font-semibold text-lg text-white"> UI/UX Design</h4>
                     <p className="text-muted-foreground">
                          Designing smooth, responsive UI for games
                          and websites.
@@ -83,7 +83,7 @@ export const AboutSection = () => {
                   <Briefcase className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                    <h4 className="font-semibold text-lg"> Project Management</h4>
+                    <h4 className="font-semibold text-lg text-white"> Project Management</h4>
                     <p className="text-muted-foreground">
                          Leading and completing creative 
                          software, web, and game projects.

@@ -60,11 +60,11 @@ export const SkillsSection = () => {
               className="bg-card p-4 rounded-lg shadow-cs card-hover"
             >
               <div className="text-left mb-4">
-                <h3 className="font-semibold text-lg"> {skills.name} </h3>
+                <h3 className="font-semibold text-lg text-white"> {skills.name} </h3>
               </div>
               <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
                 <div
-                  className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out"
+                  className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
                   style={{ width: skills.level + "%" }}
                 />
               </div>

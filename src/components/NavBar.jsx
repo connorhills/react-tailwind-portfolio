@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -16,7 +17,7 @@ export const NavBar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.screenY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -29,14 +30,14 @@ export const NavBar = () => {
         isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
       )}
     >
-      <div className="w-full flex items-center justify-between px-24">
+      <div className="container flex items-center justify-between">
         <a
           className="text-xl font-bold text-primary flex items-center"
           href="#home"
         >
           <span className="relative z-10">
             <span className="text-foreground"> Connor Hills </span>{" "}
-            <span className="text-glow">Porfolio</span>
+            <span className="text-glow"> Portfolio</span>
           </span>
         </a>
 
@@ -57,10 +58,10 @@ export const NavBar = () => {
 
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50"
+          className="md:hidden px-8 text-foreground z-50"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         <div
@@ -83,6 +84,9 @@ export const NavBar = () => {
                 {item.name}
               </a>
             ))}
+            <div className="mt-4">
+              <ThemeToggle isMenuOpen={isMenuOpen} />
+            </div>
           </div>
         </div>
       </div>

@@ -29,13 +29,10 @@ export const Home = () => {
     const primaryHue = parseInt(randomPrimary.split(" ")[0]); 
     const matchingCard = getMatchingCardColor(primaryHue);
 
-    // Set primary color
     document.documentElement.style.setProperty("--primary", randomPrimary);
 
-    // Set matching card color
     document.documentElement.style.setProperty("--card", matchingCard);
 
-    // Apply to dark mode as well
     document.querySelectorAll(".dark").forEach((el) => {
       el.style.setProperty("--primary", randomPrimary);
       el.style.setProperty("--card", matchingCard);

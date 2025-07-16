@@ -101,7 +101,7 @@ export const StarBackground = () => {
             y: y,
             delay: Math.random() * 2,
             animationDuration: animationDuration, 
-            rotation: 0, // Fixed to match CSS animation
+            rotation: 180, 
             color1: colorGradient[0],
             color2: colorGradient[1],
             color3: colorGradient[0] + '80',
@@ -118,7 +118,7 @@ export const StarBackground = () => {
                 const meteorStartTime = parseInt(meteor.id.split('-')[0]);
                 const delayMs = parseFloat(meteor.delay) * 1000;
                 const animationDurationMs = meteor.animationDuration * 1000;
-                const buffer = 3000; // Buffer to prevent early removal
+                const buffer = 2000; // Buffer to prevent early removal
                 const totalDuration = delayMs + animationDurationMs + buffer;
                 const meteorEndTime = meteorStartTime + totalDuration;
                 

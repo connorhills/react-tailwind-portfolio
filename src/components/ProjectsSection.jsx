@@ -19,7 +19,7 @@ const projects = [
     image: "/projects/expenseTrackerProject.jpg",
     tag: ["React", "JavaScript", "MongoDB"],
     demoUrl: "https://react-expense-tracker-frontend.onrender.com",
-    githubUrl: "#",
+    githubUrl: "https://github.com/connorhills/react-expense-tracker",
   },
 ];
 
@@ -77,13 +77,15 @@ export const ProjectsSection = () => {
                   >
                     <ExternalLink size={30} />
                   </a>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    className="text-white/80 hover:text-primary transition-colors duration-300"
-                  >
-                    <Github size={30} />
-                  </a>
+                  {project.githubUrl && project.githubUrl !== "#" && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      className="text-white/80 hover:text-primary transition-colors duration-300"
+                    >
+                      <Github size={30} />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

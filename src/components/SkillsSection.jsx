@@ -3,17 +3,24 @@ import { cn } from "../lib/utils";
 
 const skills = [
   /* Frontend Skills */
-  { name: "HTML", level: 65, category: "frontend" },
-  { name: "CSS", level: 80, category: "frontend" },
-  { name: "JavaScript", level: 55, category: "frontend" },
-  { name: "React", level: 70, category: "frontend" },
+  { name: "HTML", level: 90, category: "frontend" },
+  { name: "CSS", level: 90, category: "frontend" },
+  { name: "JavaScript", level: 85, category: "frontend" },
+  { name: "React.js", level: 87, category: "frontend" },
+  { name: "Tailwind CSS", level: 83, category: "frontend"},
+  { name: "Vite", level: 72, category: "frontend"},
+  { name: "Axios", level: 70, category: "frontend"},
 
   /* Backend Skills */
-  { name: "C", level: 75, category: "backend" },
-  { name: "C++", level: 80, category: "backend" },
+  { name: "C", level: 82, category: "backend" },
+  { name: "C++", level: 86, category: "backend" },
   { name: "C#", level: 90, category: "backend" },
-  { name: "Java", level: 70, category: "backend" },
-  { name: "Node.js", level: 50, category: "backend" },
+  { name: "Java", level: 78, category: "backend" },
+  { name: "Node.js", level: 75, category: "backend" },
+  { name: "Express.js", level: 75, category: "backend" },
+  { name: "MongoDB", level: 71, category: "backend" },
+  { name: "RESTful API", level: 70, category: "backend" },
+  { name: "JWT Authentication", level: 77, category: "backend"},
 
   /* Tools */
   { name: "Unity", level: 95, category: "tools" },
@@ -21,6 +28,8 @@ const skills = [
   { name: "Visual Studio", level: 80, category: "tools" },
   { name: "VS Code", level: 75, category: "tools" },
   { name: "Gimp", level: 85, category: "tools" },
+  { name: "Render", level: 80, category: "tools"},
+  { name: "Vercel", level: 85, category: "tools"},
 ];
 
 const categories = ["all", "frontend", "backend", "tools"];

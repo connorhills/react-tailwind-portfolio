@@ -10,7 +10,17 @@ const projects = [
     tag: ["Unity", "C#", "Visual Studio"],
     demoUrl: "https://ciegeworks.itch.io/last-stand",
     githubUrl: "#",
-  }
+  },
+  {
+    id: 2,
+    title: "Expense Tracker",
+    description:
+      "Full-Stack income and expense tracker, with an interactive UI, charts, and more!",
+    image: "/projects/expenseTrackerProject.jpg",
+    tag: ["React", "JavaScript", "MongoDB"],
+    demoUrl: "https://react-expense-tracker-frontend.onrender.com",
+    githubUrl: "#",
+  },
 ];
 
 export const ProjectsSection = () => {
@@ -31,7 +41,8 @@ export const ProjectsSection = () => {
           {projects.map((project, key) => (
             <div
               key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover card-glow-hover flex flex-col hover:border-2 hover:border-primary"
+              style={{ minHeight: 400 }}
             >
               <div className="h-48 overflow-hidden">
                 <img
@@ -40,35 +51,39 @@ export const ProjectsSection = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              <div className="px-2 py-4">
+              <div className="flex flex-col flex-1 px-2 py-4">
                 <div className="flex flex-wrap gap-2 mb-2 px-2">
-                  {project.tag.map((tag) => (
-                    <span className="px-2 py-1 text-xs font-medium border-2 border-white/20 rounded-full bg-secondary text-secondary-foreground">
+                  {project.tag.map((tag, i) => (
+                    <span
+                      key={i}
+                      className="px-2 py-1 text-xs font-medium border-2 border-white/20 rounded-full bg-secondary text-secondary-foreground"
+                    >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <h3 className="text-xl font-semibold mb-1 text-white"> {project.title}</h3>
+                <h3 className="text-xl font-semibold mb-4 text-white">
+                  {project.title}
+                </h3>
                 <p className="text-muted-foreground text-sm mb-4">
                   {project.description}
                 </p>
-                <div className="flex justify-between items-center">
-                  <div className="flex space-x-4 px-4">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-white/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={30} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      className="text-white/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <Github size={30} />
-                    </a>
-                  </div>
+                <div className="flex-1" />
+                <div className="flex space-x-4 px-4 pb-2">
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    className="text-white/80 hover:text-primary transition-colors duration-300"
+                  >
+                    <ExternalLink size={30} />
+                  </a>
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    className="text-white/80 hover:text-primary transition-colors duration-300"
+                  >
+                    <Github size={30} />
+                  </a>
                 </div>
               </div>
             </div>

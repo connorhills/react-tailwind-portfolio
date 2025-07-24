@@ -216,3 +216,7 @@
   padding: 0;
   text-align: center;
 }
+
+.card-glow-hover:hover {
+  box-shadow: 0 0 30px 4px hsl(var(--primary));
+}

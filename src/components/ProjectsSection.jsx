@@ -5,31 +5,42 @@ const projects = [
     id: 1,
     title: "Last Stand",
     description:
-      "My first complete video game where you fight zombies endlessly in an abandoned mall.",
+      "A first-person shooter framework built with Unity featuring weapon systems, UI management, and visual effects. Includes custom HUD elements, ammo tracking, and dynamic particle systems.",
     image: "/projects/lastStandProject.jpg",
-    tag: ["Unity", "C#", "Visual Studio"],
+    tag: ["Unity", "C#", "3D Game Development"],
     demoUrl: "https://ciegeworks.itch.io/last-stand",
     githubUrl: "#",
   },
   {
     id: 2,
-    title: "Expense Tracker",
+    title: "Full-Stack Expense & Income Tracker",
     description:
-      "Full-Stack income and expense tracker, with an interactive UI, charts, and more!",
+      "Comprehensive financial management application with real-time dashboard, interactive charts, and secure user authentication. Features expense/income tracking, data visualization, and Excel export functionality.",
     image: "/projects/expenseTrackerProject.jpg",
-    tag: ["React", "JavaScript", "MongoDB"],
+    tag: ["React", "Node.js", "MongoDB", "Express.js"],
     demoUrl: "https://react-expense-tracker-frontend.onrender.com",
     githubUrl: "https://github.com/connorhills/react-expense-tracker",
+  },
+  {
+    id: 3,
+    title: "Jobify - AI Resume ATS Analyzer",
+    description:
+      "Full-stack AI-powered resume analyzer that provides users with a detailed, reliable ATS compatibility scores and improvement tips. Features PDF processing, real-time feedback, and cloud storage integration.",
+    image: "/projects/jobifyProject.jpg",
+    tag: ["React", "TypeScript", "Claude AI", "React Router"],
+    demoUrl: "https://ai-job-helper-red.vercel.app/",
+    githubUrl: "https://github.com/connorhills/ai-job-helper",
   },
 ];
 
 export const ProjectsSection = () => {
   return (
     <section id="projects" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
+      <div className="container mx-auto max-w-7xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           {" "}
-          Featured <span className="text-primary"> Projects </span>
+          Featured{" "}
+          <span className="text-primary"> Projects </span>
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
@@ -37,11 +48,11 @@ export const ProjectsSection = () => {
           detail ensuring a high-quality user experience
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-primary">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-primary transition-transform duration-300">
           {projects.map((project, key) => (
             <div
               key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover card-glow-hover flex flex-col hover:border-2 hover:border-primary"
+              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover card-glow-hover flex flex-col hover:scale-105 hover:border-2 hover:border-primary transition-transform duration-300 border-2"
               style={{ minHeight: 400 }}
             >
               <div className="h-48 overflow-hidden">
@@ -52,7 +63,7 @@ export const ProjectsSection = () => {
                 />
               </div>
               <div className="flex flex-col flex-1 px-2 py-4">
-                <div className="flex flex-wrap gap-2 mb-2 px-2">
+                <div className="flex flex-wrap gap-2 mb-2">
                   {project.tag.map((tag, i) => (
                     <span
                       key={i}
@@ -65,7 +76,7 @@ export const ProjectsSection = () => {
                 <h3 className="text-xl font-semibold mb-4 text-white">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm mb-4">
+                <p className="text-muted-foreground text-sm mb-6">
                   {project.description}
                 </p>
                 <div className="flex-1" />

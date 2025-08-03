@@ -6,21 +6,28 @@ const skills = [
   { name: "HTML", level: 90, category: "frontend" },
   { name: "CSS", level: 90, category: "frontend" },
   { name: "JavaScript", level: 85, category: "frontend" },
+  { name: "TypeScript", level: 80, category: "frontend" },
+  { name: "Next.js", level: 82, category: "frontend" },
   { name: "React.js", level: 87, category: "frontend" },
-  { name: "Tailwind CSS", level: 83, category: "frontend"},
-  { name: "Vite", level: 72, category: "frontend"},
-  { name: "Axios", level: 70, category: "frontend"},
+  { name: "Recharts", level: 78, category: "frontend" },
+  { name: "React Hooks", level: 72, category: "frontend" },
+  { name: "Tailwind CSS", level: 83, category: "frontend" },
+  { name: "Vite", level: 72, category: "frontend" },
+  { name: "Axios", level: 70, category: "frontend" },
 
   /* Backend Skills */
   { name: "C", level: 82, category: "backend" },
   { name: "C++", level: 86, category: "backend" },
   { name: "C#", level: 90, category: "backend" },
   { name: "Java", level: 78, category: "backend" },
+  { name: "Python", level: 79, category: "backend" },
   { name: "Node.js", level: 75, category: "backend" },
   { name: "Express.js", level: 75, category: "backend" },
   { name: "MongoDB", level: 71, category: "backend" },
+  { name: "Mongoose", level: 70, category: "backend" },
+  { name: "PostgreSQL/MySQL", level: 78, category: "backend" },
   { name: "RESTful API", level: 70, category: "backend" },
-  { name: "JWT Authentication", level: 77, category: "backend"},
+  { name: "JWT Authentication", level: 77, category: "backend" },
 
   /* Tools */
   { name: "Unity", level: 95, category: "tools" },
@@ -28,8 +35,9 @@ const skills = [
   { name: "Visual Studio", level: 80, category: "tools" },
   { name: "VS Code", level: 75, category: "tools" },
   { name: "Gimp", level: 85, category: "tools" },
-  { name: "Render", level: 80, category: "tools"},
-  { name: "Vercel", level: 85, category: "tools"},
+  { name: "Render", level: 80, category: "tools" },
+  { name: "Vercel", level: 85, category: "tools" },
+  { name: "ESLint", level: 76, category: "tools" },
 ];
 
 const categories = ["all", "frontend", "backend", "tools"];

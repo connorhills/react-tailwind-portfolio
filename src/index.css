@@ -133,7 +133,7 @@
 }
 
 @utility card-hover {
-  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl;
+  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-[0_0_15px_hsl(var(--primary))];
 }
 
 @utility gradient-border {
@@ -219,4 +219,8 @@
 
 .card-glow-hover:hover {
   box-shadow: 0 0 30px 4px hsl(var(--primary));
+}
+
+.resume-glow-hover:hover {
+  box-shadow: 0 0 16px 2px hsl(var(--primary));
 }

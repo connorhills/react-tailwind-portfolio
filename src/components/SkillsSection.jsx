@@ -10,7 +10,6 @@ const skills = [
   { name: "Next.js", level: 82, category: "frontend" },
   { name: "React.js", level: 87, category: "frontend" },
   { name: "Recharts", level: 78, category: "frontend" },
-  { name: "React Hooks", level: 72, category: "frontend" },
   { name: "Tailwind CSS", level: 83, category: "frontend" },
   { name: "Vite", level: 72, category: "frontend" },
   { name: "Axios", level: 70, category: "frontend" },
@@ -19,6 +18,7 @@ const skills = [
   { name: "C", level: 82, category: "backend" },
   { name: "C++", level: 86, category: "backend" },
   { name: "C#", level: 90, category: "backend" },
+  { name: ".NET", level: 85, category: "backend" },
   { name: "Java", level: 78, category: "backend" },
   { name: "Python", level: 79, category: "backend" },
   { name: "Node.js", level: 75, category: "backend" },
@@ -34,10 +34,9 @@ const skills = [
   { name: "Git/GitHub", level: 70, category: "tools" },
   { name: "Visual Studio", level: 80, category: "tools" },
   { name: "VS Code", level: 75, category: "tools" },
-  { name: "Gimp", level: 85, category: "tools" },
   { name: "Render", level: 80, category: "tools" },
   { name: "Vercel", level: 85, category: "tools" },
-  { name: "ESLint", level: 76, category: "tools" },
+  { name: "Postman", level: 75, category: "tools" },
 ];
 
 const categories = ["all", "frontend", "backend", "tools"];
@@ -60,10 +59,10 @@ export const SkillsSection = () => {
               key={key}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
+                "px-5 py-2 rounded-full transition-colors duration-300 capitalize cursor-pointer",
                 activeCategory === category
                   ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-foreground hover:bd-secondary"
+                  : "border border-primary text-primary hover:bg-primary/20 resume-glow-hover"
               )}
             >
               {category}

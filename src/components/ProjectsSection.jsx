@@ -3,13 +3,13 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "Last Stand",
+    title: "Jobify - AI Resume ATS Analyzer",
     description:
-      "A first-person shooter framework built with Unity featuring weapon systems, UI management, and visual effects. Includes custom HUD elements, ammo tracking, and dynamic particle systems.",
-    image: "/projects/lastStandProject.jpg",
-    tag: ["Unity", "C#", "3D Game Development"],
-    demoUrl: "https://ciegeworks.itch.io/last-stand",
-    githubUrl: "#",
+      "Full-stack AI-powered resume analyzer that provides users with a detailed, reliable ATS compatibility scores and improvement tips. Features PDF processing, real-time feedback, and cloud storage integration.",
+    image: "/projects/jobifyProject.jpg",
+    tag: ["React", "TypeScript", "Claude AI", "React Router"],
+    demoUrl: "https://ai-job-helper-red.vercel.app/",
+    githubUrl: "https://github.com/connorhills/ai-job-helper",
   },
   {
     id: 2,
@@ -23,13 +23,13 @@ const projects = [
   },
   {
     id: 3,
-    title: "Jobify - AI Resume ATS Analyzer",
+    title: "Last Stand",
     description:
-      "Full-stack AI-powered resume analyzer that provides users with a detailed, reliable ATS compatibility scores and improvement tips. Features PDF processing, real-time feedback, and cloud storage integration.",
-    image: "/projects/jobifyProject.jpg",
-    tag: ["React", "TypeScript", "Claude AI", "React Router"],
-    demoUrl: "https://ai-job-helper-red.vercel.app/",
-    githubUrl: "https://github.com/connorhills/ai-job-helper",
+      "A first-person shooter framework built with Unity featuring weapon systems, UI management, and visual effects. Includes custom HUD elements, ammo tracking, and dynamic particle systems.",
+    image: "/projects/lastStandProject.jpg",
+    tag: ["Unity", "C#", "3D Game Development"],
+    demoUrl: "https://ciegeworks.itch.io/last-stand",
+    githubUrl: "#",
   },
 ];
 
@@ -62,8 +62,8 @@ export const ProjectsSection = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              <div className="flex flex-col flex-1 px-2 py-4">
-                <div className="flex flex-wrap gap-2 mb-2">
+              <div className="flex flex-col flex-1 px-3 py-4">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tag.map((tag, i) => (
                     <span
                       key={i}

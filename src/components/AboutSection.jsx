@@ -16,18 +16,18 @@ export const AboutSection = () => {
               Passionate Software & Game Developer
             </h3>
             <p className="text-muted-foreground">
-              With over 3 years of software development experience and 1.5 years 
-              building games in Unity, I’m passionate about bringing ideas to life 
-              through technology. From complete websites and software to immersive 
-              video games, I enjoy creating experiences that are both functional and 
+              With over 3 years of software development experience and 1.5 years
+              building games in Unity, I’m passionate about bringing ideas to life
+              through technology. From complete websites and software to immersive
+              video games, I enjoy creating experiences that are both functional and
               visually engaging.
             </p>
 
             <p className="text-muted-foreground">
-              I strive to make technology meaningful by combining creativity with 
-              seamless functionality. Whether designing intuitive interfaces or 
-              developing engaging gameplay, I aim to create digital experiences that 
-              inspire and connect with users. I’m committed to continuous growth, 
+              I strive to make technology meaningful by combining creativity with
+              seamless functionality. Whether designing intuitive interfaces or
+              developing engaging gameplay, I aim to create digital experiences that
+              inspire and connect with users. I’m committed to continuous growth,
               always exploring new tools and techniques to expand what I can create.
             </p>
 
@@ -37,13 +37,14 @@ export const AboutSection = () => {
               </a>
 
               <a
-                href="#contact"
+                href="/resume.pdf"
+                download="Connor_Hills_Resume.pdf"
                 className={cn(
                   "px-6 py-2 rounded-full border border-primary text-primary",
-                  "hover:bg-primary/20 transition-colors duration-300"
+                  "hover:bg-primary/20 transition-colors resume-glow-hover duration-300"
                 )}
               >
-                Download CV
+                Download Resume
               </a>
             </div>
           </div>
@@ -55,11 +56,14 @@ export const AboutSection = () => {
                   <Code className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                    <h4 className="font-semibold text-lg text-white"> Game Development</h4>
-                    <p className="text-muted-foreground">
-                         Building immersive and engaging experiences 
-                         with Unity C#.
-                    </p>
+                  <h4 className="font-semibold text-lg text-white">
+                    {" "}
+                    Game Development
+                  </h4>
+                  <p className="text-muted-foreground">
+                    Building immersive and engaging experiences
+                    with Unity C#.
+                  </p>
                 </div>
               </div>
             </div>
@@ -69,11 +73,14 @@ export const AboutSection = () => {
                   <User className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                    <h4 className="font-semibold text-lg text-white"> UI/UX Design</h4>
-                    <p className="text-muted-foreground">
-                         Designing smooth, responsive UI for games
-                         and websites.
-                    </p>
+                  <h4 className="font-semibold text-lg text-white">
+                    {" "}
+                    UI/UX Design
+                  </h4>
+                  <p className="text-muted-foreground">
+                    Designing smooth, responsive UI for games
+                    and websites.
+                  </p>
                 </div>
               </div>
             </div>
@@ -83,11 +90,14 @@ export const AboutSection = () => {
                   <Briefcase className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                    <h4 className="font-semibold text-lg text-white"> Project Management</h4>
-                    <p className="text-muted-foreground">
-                         Leading and completing creative 
-                         software, web, and game projects.
-                    </p>
+                  <h4 className="font-semibold text-lg text-white">
+                    {" "}
+                    Project Management
+                  </h4>
+                  <p className="text-muted-foreground">
+                    Leading and completing creative
+                    software, web, and game projects.
+                  </p>
                 </div>
               </div>
             </div>

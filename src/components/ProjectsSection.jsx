@@ -31,6 +31,16 @@ const projects = [
     demoUrl: "https://ciegeworks.itch.io/last-stand",
     githubUrl: "#",
   },
+  {
+    id: 4,
+    title: "Trade Recap Calendar",
+    description: 
+      "Made for NQuarters trading community to help track their trades, showing their wins, losses, reasoning, entries, stop losses you name it. The goal is to help the community have a place to see everything trade related.",
+    image: "/projects/nquarters-trade-cal.jpg",
+    tag: ["Nest.js", "Node.js", "Prisma", "TypeScript"],
+    demoUrl: "https://nquarters-calendar.vercel.app",
+    githubUrl: "https://github.com/connorhills/NQuarters-Trade-Recap-Calendar",
+  }
 ];
 
 export const ProjectsSection = () => {

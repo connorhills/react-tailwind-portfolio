@@ -27,17 +27,17 @@ export const StarBackground = () => {
 
     const generateSingleMeteor = () => {
         const meteorColors = [
-            ['#00FFFF', '#0080ff23'], 
-            ['#FF0080', '#ff00ff23'], 
-            ['#00FF00', '#80ff0023'], 
-            ['#FFFF00', '#ff800023'], 
-            ['#8000FF', '#ff00ff23'], 
-            ['#00FF80', '#00ffff23'], 
-            ['#FF4000', '#ff008023'], 
-            ['#4000FF', '#8000ff23'], 
-            ['#80FF00', '#FFFF0023'], 
-            ['#FF0040', '#FF408023'], 
-            ['#0040FF', '#00FFFF23'], 
+            ['#00FFFF', '#0080ff23'],
+            ['#FF0080', '#ff00ff23'],
+            ['#00FF00', '#80ff0023'],
+            ['#FFFF00', '#ff800023'],
+            ['#8000FF', '#ff00ff23'],
+            ['#00FF80', '#00ffff23'],
+            ['#FF4000', '#ff008023'],
+            ['#4000FF', '#8000ff23'],
+            ['#80FF00', '#FFFF0023'],
+            ['#FF0040', '#FF408023'],
+            ['#0040FF', '#00FFFF23'],
             ['#FF8000', '#FFFF0023'],
             ['#FF006F', '#FF339923'],
             ['#39FF14', '#CCFF0023'],
@@ -80,10 +80,10 @@ export const StarBackground = () => {
         ];
 
         const colorGradient = meteorColors[Math.floor(Math.random() * meteorColors.length)];
-        
+
         const spawnSide = Math.random();
         let x, y;
-        
+
         if (spawnSide < 0.5) {
             x = Math.random() * 100;
             y = Math.random() * 100;
@@ -91,17 +91,17 @@ export const StarBackground = () => {
             x = Math.random() * -100;
             y = Math.random() * 100;
         }
-        
+
         const animationDuration = Math.random() * 3 + 6;
-        
+
         return {
             id: `${Date.now()}-${Math.random()}`,
             size: Math.random() * 3 + 1,
             x: x,
             y: y,
             delay: Math.random() * 2,
-            animationDuration: animationDuration, 
-            rotation: 180, 
+            animationDuration: animationDuration,
+            rotation: 180,
             color1: colorGradient[0],
             color2: colorGradient[1],
             color3: colorGradient[0] + '80',
@@ -113,7 +113,7 @@ export const StarBackground = () => {
         setMeteors(currentMeteors => {
             const now = Date.now();
             const updatedMeteors = [];
-            
+
             currentMeteors.forEach(meteor => {
                 const meteorStartTime = parseInt(meteor.id.split('-')[0]);
                 const delayMs = parseFloat(meteor.delay) * 1000;
@@ -121,7 +121,7 @@ export const StarBackground = () => {
                 const buffer = 2000; // Buffer to prevent early removal
                 const totalDuration = delayMs + animationDurationMs + buffer;
                 const meteorEndTime = meteorStartTime + totalDuration;
-                
+
                 if (now < meteorEndTime) {
                     updatedMeteors.push(meteor);
                 } else {
@@ -129,7 +129,7 @@ export const StarBackground = () => {
                     updatedMeteors.push(newMeteor);
                 }
             });
-            
+
             return updatedMeteors;
         });
     };
@@ -140,17 +140,17 @@ export const StarBackground = () => {
         );
 
         const starColors = [
-            ['#00FFFF', '#0080FF'], 
-            ['#FF0080', '#FF00FF'], 
-            ['#00FF00', '#80FF00'], 
-            ['#FFFF00', '#FF8000'], 
-            ['#8000FF', '#FF00FF'], 
-            ['#00FF80', '#00FFFF'], 
-            ['#FF4000', '#FF0080'], 
-            ['#4000FF', '#8000FF'], 
-            ['#80FF00', '#FFFF00'], 
-            ['#FF0040', '#FF4080'], 
-            ['#0040FF', '#00FFFF'], 
+            ['#00FFFF', '#0080FF'],
+            ['#FF0080', '#FF00FF'],
+            ['#00FF00', '#80FF00'],
+            ['#FFFF00', '#FF8000'],
+            ['#8000FF', '#FF00FF'],
+            ['#00FF80', '#00FFFF'],
+            ['#FF4000', '#FF0080'],
+            ['#4000FF', '#8000FF'],
+            ['#80FF00', '#FFFF00'],
+            ['#FF0040', '#FF4080'],
+            ['#0040FF', '#00FFFF'],
             ['#FF8000', '#FFFF00'],
             ['#FF006F', '#FF3399'],
             ['#39FF14', '#CCFF00'],
@@ -192,82 +192,93 @@ export const StarBackground = () => {
 
         const newStars = []
 
-    for (let i = 0; i < numberOfStars; i++) {
-        const colorGradient = starColors[Math.floor(Math.random() * starColors.length)]
-        const starSize = Math.random() < 0.1 ? Math.random() * 1 + 1.5 : Math.random() * 1 + 0.75;
-        
-        newStars.push({
-            id: i,
-            size: starSize,
-            x: Math.random() * 100,
-            y: Math.random() * 100 - 5,
-            opacity: Math.random() * 0.5 + 0.5,
-            animationDuration: Math.random() * 4 + 2,
-            glowLarge: starSize * 3, // Scale glow with star size
-            glowSmall: starSize * 2,
-            color1: colorGradient[0],
-            color2: colorGradient[1],
-            color3: colorGradient[0] + '60',
-            color4: colorGradient[1],
-        });
-    }
+        for (let i = 0; i < numberOfStars; i++) {
+            const colorGradient = starColors[Math.floor(Math.random() * starColors.length)]
 
-    setStars(newStars);
-  };
+            const isFourPoint = Math.random() < 0.4;
+            const sizeRoll = Math.random();
+            let starSize;
+            if (sizeRoll < 0.1) {
+                starSize = Math.random() * 1 + 2.0;
+            } else if (sizeRoll < 0.3) {
+                starSize = Math.random() * 0.5 + 0.5;
+            } else {
+                starSize = Math.random() * 1 + 0.75;
+            }
 
-  const generateMeteors = () => {
-    const numberOfMeteors = 50;
-    const newMeteors = [];
+            newStars.push({
+                id: i,
+                size: starSize,
+                x: Math.random() * 100,
+                y: Math.random() * 100 - 5,
+                opacity: Math.random() * 0.5 + 0.5,
+                animationDuration: Math.random() * 4 + 2,
+                glowLarge: starSize * 3,
+                glowSmall: starSize * 2,
+                color1: colorGradient[0],
+                color2: colorGradient[1],
+                color3: colorGradient[0] + '60',
+                color4: colorGradient[1],
+                isFourPoint: isFourPoint,
+            });
+        }
 
-    for (let i = 0; i < numberOfMeteors; i++) {
-        newMeteors.push(generateSingleMeteor());
-    }
+        setStars(newStars);
+    };
 
-    setMeteors(newMeteors);
-  };
-  return ( 
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        {stars.map((star) => (
-            <div 
-                key={star.id} 
-                className="star animate-pulse-subtle" 
-                style={{
-                  width: star.size + "px",
-                  height: star.size + "px",
-                  left: star.x + "%",
-                  top: star.y + "%",
-                  opacity: star.opacity,
-                  animationDuration: star.animationDuration + "s",
-                  '--star-color-1': star.color1,
-                  '--star-color-2': star.color2,
-                  '--star-color-3': star.color3,
-                  '--star-color-4': star.color4,
-                  '--star-glow-large': star.glowLarge + 'px',
-                  '--star-glow-small': star.glowSmall + 'px',
-              }}
-            />
-        ))}
-        
-        {meteors.map((meteor) => (
-            <div 
-                key={meteor.id} 
-                className="meteor animate-meteor" 
-                style={{
-                  width: meteor.size * 50 + "px",
-                  height: meteor.size * 1 + "px",
-                  left: meteor.x + "%",
-                  top: meteor.y + "%",
-                  animationDelay: meteor.delay,
-                  animationDuration: meteor.animationDuration + "s",
-                  transform: `rotate(${meteor.rotation}deg)`,
-                  '--meteor-color-1': meteor.color1,
-                  '--meteor-color-2': meteor.color2,
-                  '--meteor-color-3': meteor.color3,
-                  '--meteor-color-4': meteor.color4,
-                  '--meteor-shadow-color': `${meteor.color1}66`,
-              }}
-            />
-        ))}
-    </div>
-  );
+    const generateMeteors = () => {
+        const numberOfMeteors = 50;
+        const newMeteors = [];
+
+        for (let i = 0; i < numberOfMeteors; i++) {
+            newMeteors.push(generateSingleMeteor());
+        }
+
+        setMeteors(newMeteors);
+    };
+    return (
+        <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+            {stars.map((star) => (
+                <div
+                    key={star.id}
+                    className={`${star.isFourPoint ? 'star-point' : 'star'} animate-star-twinkle`}
+                    style={{
+                        width: star.size + "px",
+                        height: star.size + "px",
+                        left: star.x + "%",
+                        top: star.y + "%",
+                        opacity: star.opacity,
+                        animationDuration: star.animationDuration + "s",
+                        '--star-color-1': star.color1,
+                        '--star-color-2': star.color2,
+                        '--star-color-3': star.color3,
+                        '--star-color-4': star.color4,
+                        '--star-glow-large': star.glowLarge + 'px',
+                        '--star-glow-small': star.glowSmall + 'px',
+                    }}
+                />
+            ))}
+
+            {meteors.map((meteor) => (
+                <div
+                    key={meteor.id}
+                    className="meteor animate-meteor"
+                    style={{
+                        width: meteor.size * 50 + "px",
+                        height: meteor.size * 1 + "px",
+                        left: meteor.x + "%",
+                        top: meteor.y + "%",
+                        animationDelay: meteor.delay,
+                        animationDuration: meteor.animationDuration + "s",
+                        transform: `rotate(${meteor.rotation}deg)`,
+                        '--meteor-color-1': meteor.color1,
+                        '--meteor-color-2': meteor.color2,
+                        '--meteor-color-3': meteor.color3,
+                        '--meteor-color-4': meteor.color4,
+                        '--meteor-shadow-color': `${meteor.color1}66`,
+                    }}
+                />
+            ))}
+        </div>
+    );
 };

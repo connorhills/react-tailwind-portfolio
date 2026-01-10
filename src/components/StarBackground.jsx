@@ -1,9 +1,8 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export const StarBackground = () => {
     const [stars, setStars] = useState([]);
     const [meteors, setMeteors] = useState([]);
-    const meteorRefs = useRef(new Map());
 
     useEffect(() => {
         generateStars();

@@ -3,26 +3,51 @@ import { useEffect, useState } from "react";
 export const StarBackground = () => {
     const [stars, setStars] = useState([]);
     const [meteors, setMeteors] = useState([]);
+    const [pageHeight, setPageHeight] = useState(0);
 
     useEffect(() => {
-        generateStars();
+        const updatePageHeight = () => {
+            const height = Math.max(
+                document.body.scrollHeight,
+                document.documentElement.scrollHeight,
+                window.innerHeight
+            );
+            setPageHeight(height);
+        };
+
+        // Initial calculation
+        updatePageHeight();
         generateMeteors();
 
         const handleResize = () => {
-            generateStars();
+            updatePageHeight();
         };
 
         const meteorInterval = setInterval(() => {
             checkAndRegenerateMeteors();
         }, 1000);
 
-        window.addEventListener('resize', handleResize)
+        // Use ResizeObserver for more accurate page height detection
+        const resizeObserver = new ResizeObserver(() => {
+            updatePageHeight();
+        });
+        resizeObserver.observe(document.body);
+
+        window.addEventListener('resize', handleResize);
 
         return () => {
             window.removeEventListener("resize", handleResize);
             clearInterval(meteorInterval);
+            resizeObserver.disconnect();
         };
     }, []);
+
+    // Generate stars when page height changes
+    useEffect(() => {
+        if (pageHeight > 0) {
+            generateStars(pageHeight);
+        }
+    }, [pageHeight]);
 
     const generateSingleMeteor = () => {
         const meteorColors = [
@@ -133,9 +158,10 @@ export const StarBackground = () => {
         });
     };
 
-    const generateStars = () => {
+    const generateStars = (height) => {
+        // Calculate stars based on full page area
         const numberOfStars = Math.floor(
-            (window.innerWidth * window.innerHeight) / 20000
+            (window.innerWidth * height) / 20000
         );
 
         const starColors = [
@@ -209,7 +235,7 @@ export const StarBackground = () => {
                 id: i,
                 size: starSize,
                 x: Math.random() * 100,
-                y: Math.random() * 100 - 5,
+                y: Math.random() * height, // Use pixel position for full page
                 opacity: Math.random() * 0.5 + 0.5,
                 animationDuration: Math.random() * 4 + 2,
                 glowLarge: starSize * 3,
@@ -236,7 +262,10 @@ export const StarBackground = () => {
         setMeteors(newMeteors);
     };
     return (
-        <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div
+            className="absolute inset-x-0 top-0 overflow-hidden pointer-events-none z-0"
+            style={{ height: pageHeight + 'px' }}
+        >
             {stars.map((star) => (
                 <div
                     key={star.id}
@@ -245,7 +274,7 @@ export const StarBackground = () => {
                         width: star.size + "px",
                         height: star.size + "px",
                         left: star.x + "%",
-                        top: star.y + "%",
+                        top: star.y + "px",
                         opacity: star.opacity,
                         animationDuration: star.animationDuration + "s",
                         '--star-color-1': star.color1,

@@ -26,7 +26,7 @@ export const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      const result = await emailjs.send(
+      await emailjs.send(
         "service_zyhf8te",
         "template_mr65t7r",
         {
@@ -49,7 +49,7 @@ export const ContactSection = () => {
         email: "",
         message: "",
       });
-    } catch (error) {
+    } catch {
       toast({
         title: "Error sending message",
         description:
@@ -68,11 +68,11 @@ export const ContactSection = () => {
         </h2>
 
         <p className="text-center text-muted-foreground mb-2 max-w-2xl mx-auto">
-          Have an idea you want to bring to life?
+          Have a role, project, or opportunity you want to discuss?
         </p>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Feel free to reach out, I'm always interested in discussing new
-          opportunities!
+          Feel free to reach out. I am always open to a good conversation about
+          building useful products.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="py-8 space-y-15">

@@ -1,49 +1,80 @@
+import { useState } from "react";
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { cn } from "../lib/utils";
 
 const projects = [
   {
     id: 1,
-    title: "Jobify - AI Resume ATS Analyzer",
+    title: "OpulFi",
     description:
-      "Full-stack AI-powered resume analyzer that provides users with a detailed, reliable ATS compatibility scores and improvement tips. Features PDF processing, real-time feedback, and cloud storage integration.",
-    image: "/projects/jobifyProject.jpg",
-    tag: ["React", "TypeScript", "Claude AI", "React Router"],
-    demoUrl: "https://ai-job-helper-red.vercel.app/",
-    githubUrl: "https://github.com/connorhills/ai-job-helper",
+      "A DeFi platform built on the XRPL with real-time data, staking features, and a strong focus on making blockchain tools feel more usable.",
+    image: "/projects/opulfiProject.jpg",
+    tag: ["DeFi", "NestJS", "TypeScript", "Blockchain"],
+    category: "blockchain",
+    demoUrl: "https://opulfi.io",
+    githubUrl: "#",
   },
   {
     id: 2,
-    title: "Full-Stack Expense & Income Tracker",
+    title: "Trade Recap",
     description:
-      "Comprehensive financial management application with real-time dashboard, interactive charts, and secure user authentication. Features expense/income tracking, data visualization, and Excel export functionality.",
+      "Built for the NQuarters trading community to log trades, review decision-making, and keep entries, stops, wins, and losses in one place.",
+    image: "/projects/nquarters-trade-cal.jpg",
+    tag: ["Nest.js", "Node.js", "Prisma", "TypeScript"],
+    category: "web-apps",
+    demoUrl: "https://nquarters-calendar.vercel.app",
+    githubUrl: "https://github.com/connorhills/NQuarters-Trade-Recap-Calendar",
+  },
+  {
+    id: 3,
+    title: "Expense Tracker",
+    description:
+      "A full-stack finance tracker for managing income and expenses with dashboards, charts, authentication, and Excel export.",
     image: "/projects/expenseTrackerProject.jpg",
     tag: ["React", "Node.js", "MongoDB", "Express.js"],
+    category: "web-apps",
     demoUrl: "https://react-expense-tracker-frontend.onrender.com",
     githubUrl: "https://github.com/connorhills/react-expense-tracker",
   },
   {
-    id: 3,
+    id: 4,
     title: "Last Stand",
     description:
-      "A first-person shooter framework built with Unity featuring weapon systems, UI management, and visual effects. Includes custom HUD elements, ammo tracking, and dynamic particle systems.",
+      "A Unity FPS project where I built core gameplay systems including weapons, HUD elements, ammo tracking, and visual effects.",
     image: "/projects/lastStandProject.jpg",
     tag: ["Unity", "C#", "3D Game Development"],
+    category: "games",
     demoUrl: "https://ciegeworks.itch.io/last-stand",
     githubUrl: "#",
   },
   {
-    id: 4,
-    title: "Trade Recap Calendar",
-    description: 
-      "Made for NQuarters trading community to help track their trades, showing their wins, losses, reasoning, entries, stop losses you name it. The goal is to help the community have a place to see everything trade related.",
-    image: "/projects/nquarters-trade-cal.jpg",
-    tag: ["Nest.js", "Node.js", "Prisma", "TypeScript"],
-    demoUrl: "https://nquarters-calendar.vercel.app",
-    githubUrl: "https://github.com/connorhills/NQuarters-Trade-Recap-Calendar",
+    id: 5,
+    title: "Jobify",
+    description:
+      "An AI resume analyzer that scores ATS compatibility, processes PDFs, and gives users practical feedback on how to improve their resume.",
+    image: "/projects/jobifyProject.jpg",
+    tag: ["React", "TypeScript", "Claude AI", "React Router"],
+    category: "web-apps",
+    demoUrl: "https://ai-job-helper-red.vercel.app/",
+    githubUrl: "https://github.com/connorhills/ai-job-helper",
   }
 ];
 
+const categories = [
+  { key: "all", label: "All" },
+  { key: "web-apps", label: "Web Apps" },
+  { key: "games", label: "Games" },
+  { key: "blockchain", label: "Blockchain" },
+  { key: "tools", label: "Tools" },
+];
+
 export const ProjectsSection = () => {
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  const filteredProjects = projects.filter(
+    (project) => activeCategory === "all" || project.category === activeCategory
+  );
+
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-7xl">
@@ -54,12 +85,29 @@ export const ProjectsSection = () => {
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some of my recent projects, each built with attention to
-          detail ensuring a high-quality user experience
+          A selection of projects that show how I approach product thinking,
+          usability, and full-stack development.
         </p>
 
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {categories.map((cat) => (
+            <button
+              key={cat.key}
+              onClick={() => setActiveCategory(cat.key)}
+              className={cn(
+                "px-5 py-2 rounded-full transition-colors duration-300 cursor-pointer",
+                activeCategory === cat.key
+                  ? "bg-primary text-primary-foreground"
+                  : "border border-primary text-primary hover:bg-primary/20 resume-glow-hover"
+              )}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-primary transition-transform duration-300">
-          {projects.map((project, key) => (
+          {filteredProjects.map((project, key) => (
             <div
               key={key}
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover card-glow-hover flex flex-col hover:scale-105 hover:border-2 hover:border-primary transition-transform duration-300 border-2"

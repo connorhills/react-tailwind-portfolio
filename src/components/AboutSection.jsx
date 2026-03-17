@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Briefcase, Code, User } from "lucide-react";
+import { Briefcase, Code, Globe } from "lucide-react";
 
 export const AboutSection = () => {
   return (
@@ -13,22 +13,22 @@ export const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold">
-              Passionate Software & Game Developer
+              Full-Stack Developer Who Likes Building Things That People Use
             </h3>
             <p className="text-muted-foreground">
-              With over 3 years of software development experience and 1.5 years
-              building games in Unity, I’m passionate about bringing ideas to life
-              through technology. From complete websites and software to immersive
-              video games, I enjoy creating experiences that are both functional and
-              visually engaging.
+              Over the last year, most of my time has gone into building
+              OpulFi, a DeFi platform on the XRPL. Working on that pushed me
+              further into full-stack development, product thinking, API design,
+              and building features that need to be clear, reliable, and easy
+              to use. I like taking ideas from concept to something real and
+              making sure the end result feels solid.
             </p>
 
             <p className="text-muted-foreground">
-              I strive to make technology meaningful by combining creativity with
-              seamless functionality. Whether designing intuitive interfaces or
-              developing engaging gameplay, I aim to create digital experiences that
-              inspire and connect with users. I’m committed to continuous growth,
-              always exploring new tools and techniques to expand what I can create.
+              I also have experience building web apps and tools that sharpened
+              my frontend, backend, and UX skills. What matters most to me is
+              writing clean code, communicating well, and building products that
+              actually solve a problem instead of just looking good in a demo.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -53,33 +53,15 @@ export const AboutSection = () => {
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Code className="h-6 w-6 text-primary" />
+                  <Globe className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
                   <h4 className="font-semibold text-lg text-white">
-                    {" "}
-                    Game Development
+                    Full-Stack Web Development
                   </h4>
                   <p className="text-muted-foreground">
-                    Building immersive and engaging experiences
-                    with Unity C#.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <User className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg text-white">
-                    {" "}
-                    UI/UX Design
-                  </h4>
-                  <p className="text-muted-foreground">
-                    Designing smooth, responsive UI for games
-                    and websites.
+                    Building end-to-end applications with React, Node.js, and
+                    modern tooling, with a strong focus on usability and polish.
                   </p>
                 </div>
               </div>
@@ -91,12 +73,27 @@ export const AboutSection = () => {
                 </div>
                 <div className="text-left">
                   <h4 className="font-semibold text-lg text-white">
-                    {" "}
-                    Project Management
+                    Blockchain & DeFi
                   </h4>
                   <p className="text-muted-foreground">
-                    Leading and completing creative
-                    software, web, and game projects.
+                    Working on blockchain products with real-time data,
+                    platform features, and a strong emphasis on trust and clarity.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="gradient-border p-6 card-hover">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <Code className="h-6 w-6 text-primary" />
+                </div>
+                <div className="text-left">
+                  <h4 className="font-semibold text-lg text-white">
+                    Product-Focused Execution
+                  </h4>
+                  <p className="text-muted-foreground">
+                    Turning ideas into usable products with attention to detail,
+                    maintainable code, and a smooth user experience.
                   </p>
                 </div>
               </div>

@@ -20,20 +20,23 @@ export const HomeSection = () => {
             </span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            I create video games, applications, websites, and more.
-            Specializing in full-stack development, I strive to develop
-            <span className="text-xl text-primary font-bold text-glow"> immersive</span>,
-            and <span className="text-xl text-primary font-bold text-glow">engaging experiences</span>,
-            or <span className="text-xl text-primary font-bold text-glow">practical </span>
-            and <span className="text-xl text-primary font-bold text-glow">intuitive </span>
-            tools for everyone to enjoy!
+            I am a full-stack developer who likes building products that are
+            <span className="text-xl text-primary font-bold text-glow"> useful</span>,
+            <span className="text-xl text-primary font-bold text-glow"> reliable</span>, and
+            <span className="text-xl text-primary font-bold text-glow"> easy to use</span>.
+            Most recently, I have been focused on
+            <span className="text-xl text-primary font-bold text-glow"> blockchain</span> and
+            product development through OpulFi, while also building web apps
+            and tools that solve
+            <span className="text-xl text-primary font-bold text-glow"> real problems</span>.
           </p>
 
           <div className="space-y-0 opacity-0 animate-fade-in-delay-3">
-            <p className="text-lg mb-0"> PS: if you don't like the current <span className="text-xl text-primary font-bold text-glow">color</span> theme refresh 
-            <span className="text-xl">🔃</span>
+            <p className="text-lg mb-0">
+              The site theme changes on refresh, so it may look a little
+              different each time.
             </p>
-            <p className="text-[15px] mt-0">(maybe there is even more components that will change!) </p>
+            <p className="text-[15px] mt-0">A small detail, but a fun one.</p>
           </div>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">

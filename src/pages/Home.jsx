@@ -12,31 +12,77 @@ import { Footer } from "@/components/Footer";
 
 export const Home = () => {
   useEffect(() => {
-    const getRandomPrimaryColor = () => {
-      const hue = Math.floor(Math.random() * 360);
-      const saturation = 70 + Math.random() * 20;
-      const lightness = 50 + Math.random() * 10;
-      return `${hue} ${saturation.toFixed(1)}% ${lightness.toFixed(1)}%`;
+    const hue = Math.floor(Math.random() * 360);
+    const saturation = 76 + Math.random() * 18;
+    const lightness =
+      hue >= 38 && hue <= 105
+        ? 38 + Math.random() * 8
+        : 45 + Math.random() * 10;
+    const randomAccent = `${hue} ${saturation.toFixed(1)}% ${lightness.toFixed(
+      1
+    )}%`;
+
+    const hslToRgb = (h, s, l) => {
+      const normalizedS = s / 100;
+      const normalizedL = l / 100;
+      const chroma = (1 - Math.abs(2 * normalizedL - 1)) * normalizedS;
+      const x = chroma * (1 - Math.abs(((h / 60) % 2) - 1));
+      const m = normalizedL - chroma / 2;
+
+      let red = 0;
+      let green = 0;
+      let blue = 0;
+
+      if (h < 60) {
+        red = chroma;
+        green = x;
+      } else if (h < 120) {
+        red = x;
+        green = chroma;
+      } else if (h < 180) {
+        green = chroma;
+        blue = x;
+      } else if (h < 240) {
+        green = x;
+        blue = chroma;
+      } else if (h < 300) {
+        red = x;
+        blue = chroma;
+      } else {
+        red = chroma;
+        blue = x;
+      }
+
+      return [red + m, green + m, blue + m];
     };
 
-    const getMatchingCardColor = (primaryHue) => {
-      const saturation = 50 + Math.random() * 20; 
-      const lightness = 10;
-      return `${primaryHue} ${saturation.toFixed(1)}% ${lightness.toFixed(1)}%`;
+    const relativeLuminance = (rgb) => {
+      const [red, green, blue] = rgb.map((channel) =>
+        channel <= 0.03928
+          ? channel / 12.92
+          : ((channel + 0.055) / 1.055) ** 2.4
+      );
+
+      return 0.2126 * red + 0.7152 * green + 0.0722 * blue;
     };
 
-    const randomPrimary = getRandomPrimaryColor();
-    const primaryHue = parseInt(randomPrimary.split(" ")[0]); 
-    const matchingCard = getMatchingCardColor(primaryHue);
+    const accentLuminance = relativeLuminance(
+      hslToRgb(hue, saturation, lightness)
+    );
+    const primaryForeground =
+      accentLuminance > 0.42 ? "222 47% 11%" : "210 40% 98%";
+    const themedCard = `${hue} 38% 10%`;
+    const themedSecondary = `${hue} 26% 17%`;
+    const themedInput = `${hue} 22% 18%`;
 
-    document.documentElement.style.setProperty("--primary", randomPrimary);
-
-    document.documentElement.style.setProperty("--card", matchingCard);
-
-    document.querySelectorAll(".dark").forEach((el) => {
-      el.style.setProperty("--primary", randomPrimary);
-      el.style.setProperty("--card", matchingCard);
-    });
+    document.documentElement.style.setProperty("--primary", randomAccent);
+    document.documentElement.style.setProperty(
+      "--primary-foreground",
+      primaryForeground
+    );
+    document.documentElement.style.setProperty("--card", themedCard);
+    document.documentElement.style.setProperty("--secondary", themedSecondary);
+    document.documentElement.style.setProperty("--input", themedInput);
   }, []);
 
   return (

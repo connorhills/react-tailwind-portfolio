@@ -8,36 +8,24 @@ export const HomeSection = () => {
     >
       <div className="container max-w-4xl mx-auto text-center z-10">
         <div className="space-y-6">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            <span className="opacity-0 animate-fade-in"> Hi, my name is</span>
-            <span className="text-primary opacity-0 animate-fade-in-delay-1 text-glow">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
+            <span className="block sm:inline opacity-0 animate-fade-in">
+              Hi, my name is
+            </span>
+            <span className="block sm:inline text-primary opacity-0 animate-fade-in-delay-1 text-glow">
               {" "}
               Connor
             </span>
-            <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
+            <span className="block sm:inline text-gradient sm:ml-2 opacity-0 animate-fade-in-delay-2">
               {" "}
               Hills
             </span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            I am a full-stack developer who likes building products that are
-            <span className="text-xl text-primary font-bold text-glow"> useful</span>,
-            <span className="text-xl text-primary font-bold text-glow"> reliable</span>, and
-            <span className="text-xl text-primary font-bold text-glow"> easy to use</span>.
-            Most recently, I have been focused on
-            <span className="text-xl text-primary font-bold text-glow"> blockchain</span> and
-            product development through OpulFi, while also building web apps
-            and tools that solve
-            <span className="text-xl text-primary font-bold text-glow"> real problems</span>.
+          <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3 leading-relaxed">
+            I build full-stack web apps, interactive digital experiences, and
+            practical tools with clean interfaces, reliable APIs, and hosting
+            that holds up after launch.
           </p>
-
-          <div className="space-y-0 opacity-0 animate-fade-in-delay-3">
-            <p className="text-lg mb-0">
-              The site theme changes on refresh, so it may look a little
-              different each time.
-            </p>
-            <p className="text-[15px] mt-0">A small detail, but a fun one.</p>
-          </div>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">
             <a href="#projects" className="cosmic-button">

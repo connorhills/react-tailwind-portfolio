@@ -13,22 +13,23 @@ export const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold">
-              Full-Stack Developer Who Likes Building Things That People Use
+              Full-Stack Developer Building Useful, Hosted Software
             </h3>
-            <p className="text-muted-foreground">
-              Over the last year, most of my time has gone into building
-              OpulFi, a DeFi platform on the XRPL. Working on that pushed me
-              further into full-stack development, product thinking, API design,
-              and building features that need to be clear, reliable, and easy
-              to use. I like taking ideas from concept to something real and
-              making sure the end result feels solid.
+            <p className="text-foreground/70">
+              I like building projects where people need to explore content,
+              understand information clearly, or complete a workflow without
+              friction. Over the last year, I have worked across OpulFi and
+              OpulX, building XRPL products that required full-stack features,
+              wallet-aware UX, API design, marketplace flows, and production
+              deployment work.
             </p>
 
-            <p className="text-muted-foreground">
-              I also have experience building web apps and tools that sharpened
-              my frontend, backend, and UX skills. What matters most to me is
-              writing clean code, communicating well, and building products that
-              actually solve a problem instead of just looking good in a demo.
+            <p className="text-foreground/70">
+              I also build web apps, desktop tools, and game systems that keep
+              sharpening my frontend, backend, hosting, and UX skills. What
+              matters most to me is writing clean code, communicating clearly,
+              and shipping products that solve the actual problem instead of
+              only looking good in a demo.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -57,11 +58,12 @@ export const AboutSection = () => {
                 </div>
                 <div className="text-left">
                   <h4 className="font-semibold text-lg text-white">
-                    Full-Stack Web Development
+                    Interactive Interfaces
                   </h4>
-                  <p className="text-muted-foreground">
-                    Building end-to-end applications with React, Node.js, and
-                    modern tooling, with a strong focus on usability and polish.
+                  <p className="text-white/70">
+                    Building responsive interfaces for products, tools, and
+                    content-rich experiences with a strong focus on clarity,
+                    navigation, and polish.
                   </p>
                 </div>
               </div>
@@ -73,11 +75,12 @@ export const AboutSection = () => {
                 </div>
                 <div className="text-left">
                   <h4 className="font-semibold text-lg text-white">
-                    Blockchain & DeFi
+                    APIs, Data & Workflows
                   </h4>
-                  <p className="text-muted-foreground">
-                    Working on blockchain products with real-time data,
-                    platform features, and a strong emphasis on trust and clarity.
+                  <p className="text-white/70">
+                    Connecting frontends to APIs, databases, authentication, and
+                    platform-specific workflows, including XRPL marketplace and
+                    DeFi features.
                   </p>
                 </div>
               </div>
@@ -89,11 +92,11 @@ export const AboutSection = () => {
                 </div>
                 <div className="text-left">
                   <h4 className="font-semibold text-lg text-white">
-                    Product-Focused Execution
+                    Hosting & Delivery
                   </h4>
-                  <p className="text-muted-foreground">
+                  <p className="text-white/70">
                     Turning ideas into usable products with attention to detail,
-                    maintainable code, and a smooth user experience.
+                    maintainable code, hosting, and deployment follow-through.
                   </p>
                 </div>
               </div>

@@ -31,9 +31,11 @@ export const ThemeToggle = ({ isMenuOpen = false }) => {
 
   return (
     <button
+      type="button"
       onClick={toggleTheme}
+      aria-label={isDarkMode ? "Switch to light theme" : "Switch to dark theme"}
       className={cn(
-        "fixed top-1 right-1 z-50 p-2 rounded-full transition-colors duration-300",
+        "fixed top-3 right-3 z-50 p-2 rounded-full bg-background/70 backdrop-blur-sm transition-colors duration-300",
         "focus:outline-hidden",
         isMenuOpen && "hidden"
       )}

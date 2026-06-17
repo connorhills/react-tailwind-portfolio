@@ -1,55 +1,11 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export const StarBackground = () => {
     const [stars, setStars] = useState([]);
     const [meteors, setMeteors] = useState([]);
     const [pageHeight, setPageHeight] = useState(0);
 
-    useEffect(() => {
-        const updatePageHeight = () => {
-            const height = Math.max(
-                document.body.scrollHeight,
-                document.documentElement.scrollHeight,
-                window.innerHeight
-            );
-            setPageHeight(height);
-        };
-
-        // Initial calculation
-        updatePageHeight();
-        generateMeteors();
-
-        const handleResize = () => {
-            updatePageHeight();
-        };
-
-        const meteorInterval = setInterval(() => {
-            checkAndRegenerateMeteors();
-        }, 1000);
-
-        // Use ResizeObserver for more accurate page height detection
-        const resizeObserver = new ResizeObserver(() => {
-            updatePageHeight();
-        });
-        resizeObserver.observe(document.body);
-
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-            clearInterval(meteorInterval);
-            resizeObserver.disconnect();
-        };
-    }, []);
-
-    // Generate stars when page height changes
-    useEffect(() => {
-        if (pageHeight > 0) {
-            generateStars(pageHeight);
-        }
-    }, [pageHeight]);
-
-    const generateSingleMeteor = () => {
+    const generateSingleMeteor = useCallback(() => {
         const meteorColors = [
             ['#00FFFF', '#0080ff23'],
             ['#FF0080', '#ff00ff23'],
@@ -131,9 +87,9 @@ export const StarBackground = () => {
             color3: colorGradient[0] + '80',
             color4: colorGradient[1],
         };
-    };
+    }, []);
 
-    const checkAndRegenerateMeteors = () => {
+    const checkAndRegenerateMeteors = useCallback(() => {
         setMeteors(currentMeteors => {
             const now = Date.now();
             const updatedMeteors = [];
@@ -156,12 +112,12 @@ export const StarBackground = () => {
 
             return updatedMeteors;
         });
-    };
+    }, [generateSingleMeteor]);
 
-    const generateStars = (height) => {
+    const generateStars = useCallback((height) => {
         // Calculate stars based on full page area
         const numberOfStars = Math.floor(
-            (window.innerWidth * height) / 20000
+            (window.innerWidth * height) / 24000
         );
 
         const starColors = [
@@ -249,10 +205,10 @@ export const StarBackground = () => {
         }
 
         setStars(newStars);
-    };
+    }, []);
 
-    const generateMeteors = () => {
-        const numberOfMeteors = 50;
+    const generateMeteors = useCallback(() => {
+        const numberOfMeteors = 30;
         const newMeteors = [];
 
         for (let i = 0; i < numberOfMeteors; i++) {
@@ -260,7 +216,49 @@ export const StarBackground = () => {
         }
 
         setMeteors(newMeteors);
-    };
+    }, [generateSingleMeteor]);
+
+    useEffect(() => {
+        const updatePageHeight = () => {
+            const height = Math.max(
+                document.body.scrollHeight,
+                document.documentElement.scrollHeight,
+                window.innerHeight
+            );
+            setPageHeight(height);
+        };
+
+        updatePageHeight();
+        generateMeteors();
+
+        const handleResize = () => {
+            updatePageHeight();
+        };
+
+        const meteorInterval = setInterval(() => {
+            checkAndRegenerateMeteors();
+        }, 1000);
+
+        const resizeObserver = new ResizeObserver(() => {
+            updatePageHeight();
+        });
+        resizeObserver.observe(document.body);
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+            clearInterval(meteorInterval);
+            resizeObserver.disconnect();
+        };
+    }, [checkAndRegenerateMeteors, generateMeteors]);
+
+    useEffect(() => {
+        if (pageHeight > 0) {
+            generateStars(pageHeight);
+        }
+    }, [generateStars, pageHeight]);
+
     return (
         <div
             className="absolute inset-x-0 top-0 overflow-hidden pointer-events-none z-0"

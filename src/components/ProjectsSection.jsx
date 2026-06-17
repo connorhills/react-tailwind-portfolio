@@ -7,26 +7,61 @@ const projects = [
     id: 1,
     title: "OpulFi",
     description:
-      "A DeFi platform built on the XRPL with real-time data, staking features, and a strong focus on making blockchain tools feel more usable.",
+      "A DeFi platform built on the XRPL with real-time data, staking workflows, reward features, and a focus on making blockchain tools easier to use.",
     image: "/projects/opulfiProject.jpg",
-    tag: ["DeFi", "NestJS", "TypeScript", "Blockchain"],
+    tag: ["XRPL", "DeFi", "NestJS", "TypeScript"],
     category: "blockchain",
     demoUrl: "https://opulfi.io",
     githubUrl: "#",
   },
   {
     id: 2,
+    title: "OpulX",
+    description:
+      "A production XRPL NFT marketplace for discovering, collecting, and trading digital art, with wallet-connected flows, IPFS media, and custom-domain deployment.",
+    image: "/projects/opulxProject.jpg",
+    tag: ["XRPL", "NFT Marketplace", "React", "IPFS", "Hosting"],
+    category: "blockchain",
+    demoUrl: "https://www.opulx.io",
+    githubUrl: "#",
+  },
+  {
+    id: 3,
+    title: "Workflow",
+    description:
+      "A Python desktop productivity app with a modern CustomTkinter UI, session timer, CSV work logs, editable notes, calendar views, and priority task tracking.",
+    image: "/projects/timaProject.png",
+    imageClassName: "object-cover object-left-top bg-[#050509]",
+    tag: ["Python", "CustomTkinter", "PyInstaller", "Productivity"],
+    category: "tools",
+    demoUrl: "",
+    githubUrl: "",
+  },
+  {
+    id: 4,
+    title: "Knicks Kiosk Biography",
+    description:
+      "A premium touchscreen-style team biography built with React and Vite, featuring roster stories, coach profiles, franchise history, Hall of Famers, responsive mobile flow, and Vercel static hosting.",
+    image: "/projects/knicksKioskProject.png",
+    imageClassName: "object-cover object-left-top",
+    tag: ["React", "Vite", "Interactive Kiosk", "Vercel"],
+    category: "web-apps",
+    demoUrl: "https://knicks-kiosk-biography.vercel.app",
+    githubUrl: "",
+  },
+  {
+    id: 5,
     title: "Trade Recap",
     description:
       "Built for the NQuarters trading community to log trades, review decision-making, and keep entries, stops, wins, and losses in one place.",
     image: "/projects/nquarters-trade-cal.jpg",
-    tag: ["Nest.js", "Node.js", "Prisma", "TypeScript"],
+    tag: ["NestJS", "Node.js", "Prisma", "TypeScript"],
     category: "web-apps",
     demoUrl: "https://nquarters-calendar.vercel.app",
     githubUrl: "https://github.com/connorhills/NQuarters-Trade-Recap-Calendar",
   },
   {
-    id: 3,
+    id: 6,
     title: "Expense Tracker",
     description:
       "A full-stack finance tracker for managing income and expenses with dashboards, charts, authentication, and Excel export.",
@@ -37,7 +72,7 @@ const projects = [
     githubUrl: "https://github.com/connorhills/react-expense-tracker",
   },
   {
-    id: 4,
+    id: 7,
     title: "Last Stand",
     description:
       "A Unity FPS project where I built core gameplay systems including weapons, HUD elements, ammo tracking, and visual effects.",
@@ -48,7 +83,7 @@ const projects = [
     githubUrl: "#",
   },
   {
-    id: 5,
+    id: 8,
     title: "Jobify",
     description:
       "An AI resume analyzer that scores ATS compatibility, processes PDFs, and gives users practical feedback on how to improve their resume.",
@@ -85,8 +120,9 @@ export const ProjectsSection = () => {
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          A selection of projects that show how I approach product thinking,
-          usability, and full-stack development.
+          Production products, full-stack apps, tools, and interactive
+          experiences that show how I approach usability, API design, hosting,
+          and product execution.
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -109,7 +145,7 @@ export const ProjectsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-primary transition-transform duration-300">
           {filteredProjects.map((project, key) => (
             <div
-              key={key}
+              key={project.id ?? key}
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover card-glow-hover flex flex-col hover:scale-105 hover:border-2 hover:border-primary transition-transform duration-300 border-2"
               style={{ minHeight: 400 }}
             >
@@ -117,7 +153,10 @@ export const ProjectsSection = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className={cn(
+                    "w-full h-full transition-transform duration-500 group-hover:scale-110",
+                    project.imageClassName ?? "object-cover"
+                  )}
                 />
               </div>
               <div className="flex flex-col flex-1 px-3 py-4">
@@ -134,28 +173,38 @@ export const ProjectsSection = () => {
                 <h3 className="text-xl font-semibold mb-4 text-white">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm mb-6">
+                <p className="text-white/75 text-sm mb-6">
                   {project.description}
                 </p>
                 <div className="flex-1" />
-                <div className="flex space-x-4 px-4 pb-2">
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    className="text-white/80 hover:text-primary transition-colors duration-300"
-                  >
-                    <ExternalLink size={30} />
-                  </a>
-                  {project.githubUrl && project.githubUrl !== "#" && (
+                {(project.demoUrl || project.githubUrl) && (
+                  <div className="flex space-x-4 px-4 pb-2">
+                    {project.demoUrl && project.demoUrl !== "#" && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Open ${project.title} live project`}
+                        title={`Open ${project.title}`}
+                        className="text-white/80 hover:text-primary transition-colors duration-300"
+                      >
+                        <ExternalLink size={30} />
+                      </a>
+                    )}
+                    {project.githubUrl && project.githubUrl !== "#" && (
                     <a
                       href={project.githubUrl}
                       target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Open ${project.title} GitHub repository`}
+                      title={`${project.title} GitHub`}
                       className="text-white/80 hover:text-primary transition-colors duration-300"
                     >
                       <Github size={30} />
                     </a>
-                  )}
-                </div>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -164,6 +213,7 @@ export const ProjectsSection = () => {
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
+            rel="noreferrer"
             href="https://github.com/connorhills"
           >
             Checkout My GitHub <ArrowRight size={16} />

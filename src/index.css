@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme {
+  @theme {
   --color-border: hsl(var(--primary));
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -9,6 +9,10 @@
   --color-primary-foreground: hsl(var(--primary-foreground));
 
   --color-card: hsl(var(--card));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-input: hsl(var(--input));
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
@@ -90,10 +94,14 @@
     --background: 210 40% 100%;
     --foreground: 222 47% 11%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%; 
+    --card: 224 36% 12%;
+    --card-foreground: 213 31% 91%;
+    --muted-foreground: 220 12% 44%;
+    --secondary: 224 22% 18%;
+    --secondary-foreground: 213 31% 91%;
+    --input: 214 32% 91%;
 
-    --primary: 207.7 100% 59.6%;
+    --primary: 202 88% 52%;
     --primary-foreground: 210 40% 98%;
 
     --border: 214 32% 91%;
@@ -103,10 +111,14 @@
     --background: 190 1% 8%;
     --foreground: 213 31% 91%;
 
-    --card: 207.7 50% 10% / 95%;
+    --card: 224 36% 12%;
     --card-foreground: 213 31% 91%;
+    --muted-foreground: 215 16% 72%;
+    --secondary: 224 22% 18%;
+    --secondary-foreground: 213 31% 91%;
+    --input: 224 20% 18%;
 
-    --primary: 207.7 100% 59.6%;
+    --primary: 202 88% 52%;
     --primary-foreground: 213 31% 91%;
 
     --border: 217 33% 20%;
@@ -133,11 +145,11 @@
   @media (width >= 640px) {
     max-width: 640px;
   }
-  @media (width >= 768) {
-    max-width: 768;
+  @media (width >= 768px) {
+    max-width: 768px;
   }
-  @media (width >= 1024) {
-    max-width: 10124;
+  @media (width >= 1024px) {
+    max-width: 1024px;
   }
   @media (width >= 1280) {
     max-width: 1280px;
